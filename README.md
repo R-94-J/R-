@@ -122,17 +122,4 @@ node scripts/evaluate-retrieval.mjs
 后端测试使用独立H2内存数据库。浏览器测试默认Microsoft Edge，连接启动的前后端；学校专项依赖导入资料，外部模型专项依赖有效接口。可用 `E2E_BASE_URL`、`E2E_BROWSER_CHANNEL`、`E2E_ADMIN_USERNAME`、`E2E_ADMIN_PASSWORD` 覆盖配置。
 
 检索评测通过管理员接口取得片段，保存问题标签、排名、Hit@5、MRR@5和请求耗时，详见 [实验说明](docs/evaluation/README.md)。现有12题是试验集，正式实验需扩充和人工核对，不能据此宣称总体准确率。
-
-## 毕设材料与交付
-
-- [系统设计与接口](docs/design.md)
-- [本科毕业设计说明、实验计划与演示步骤](docs/graduation-project.md)
-- [实际验证记录](docs/verification.md)
-- [开题报告及学校模板依据](docs/proposal/README.md)
-- [写作规范原件及逐项检查记录](docs/standards/README.md)（5份标准PDF；学校同名撰写规范全文待补充）
-
-项目根目录运行 `python scripts/project-maintenance.py clean` 清理可再生成产物；运行 `python scripts/project-maintenance.py export` 生成 `deliverables/campus-knowledge-base-source.zip`。导出包按白名单包含源码、学校资料、报告和配置模板，排除本机 `.env`、数据库、依赖、IDE与工具配置。
-
-构建后端产物为 `backend/target/campus-knowledge-base-1.0.0.jar`，前端为 `frontend/dist/`。部署静态页面时将 `/api` 反向代理到Java服务，`/admin`、`/student` 回退到 `index.html`，保持同源Cookie与CSRF访问。
-
 连接失败时检查后端和端口；数据库错误时检查工作目录与 `.env`；会话过期时重新登录并刷新页面。`PORT` 可更换后端端口，前端通过 `API_PROXY_TARGET` 指定代理目标。
