@@ -1,0 +1,42 @@
+server:
+  port: ${PORT:8080}
+  servlet:
+    session:
+      timeout: 12h
+      cookie:
+        http-only: true
+        same-site: lax
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: campus-knowledge-base
+  datasource:
+    url: jdbc:h2:file:./data/campus;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ${DB_PASSWORD:}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 11MB
+  jackson:
+    time-zone: Asia/Shanghai
+app:
+  website:
+    enabled: ${WEBSITE_SEARCH_ENABLED:true}
+    timeout-ms: 5000
+    max-pages: 4
+  admin:
+    username: ${ADMIN_USERNAME:admin}
+    password: ${ADMIN_PASSWORD:Campus@2026}
+  seed-demo: ${SEED_DEMO:true}
+  ai:
+    base-url: ${AI_BASE_URL:https://api.openai.com/v1}
+    api-key: ${AI_API_KEY:}
+    model: ${AI_MODEL:gpt-4o-mini}
+    embedding-enabled: ${AI_EMBEDDING_ENABLED:false}
+    embedding-model: ${AI_EMBEDDING_MODEL:text-embedding-3-small}

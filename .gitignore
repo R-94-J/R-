@@ -1,0 +1,25 @@
+backend/target/
+frontend/node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+data/
+backend/data/
+*.log
+.env
+.idea/
+.vscode/
+.opencode/
+.github/modernize/
+__pycache__/
+*.pyc
+deliverables/
+
+# Local documents, imported knowledge, and generated design assets are not published.
+/school-data/
+/docs/
+/outputs/
+.env.*
+!.env.example
+*.mv.db
+*.trace.db

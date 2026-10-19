@@ -1,0 +1,23 @@
+{
+  "name": "campus-knowledge-base-ui",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test:e2e": "playwright test",
+    "format": "prettier --write src tests *.js *.html package.json",
+    "format:check": "prettier --check src tests *.js *.html package.json"
+  },
+  "dependencies": {
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "prettier": "3.6.2",
+    "vite": "^6.4.1"
+  }
+}
